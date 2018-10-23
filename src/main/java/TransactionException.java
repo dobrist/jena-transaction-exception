@@ -23,8 +23,9 @@ public class TransactionException {
         String sparql = "SELECT * WHERE { ?s ?p ?o . }";
         ResultSet results = query(dataset, sparql);
 
-        // print first solution
-        System.out.println(results.next());
+        // print subject of first solution
+        RDFNode subject = results.next().get("s");
+        System.out.println(subject);
     }
 
     private static ResultSet query(Dataset dataset, String sparql) {
